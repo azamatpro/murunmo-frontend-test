@@ -40,7 +40,8 @@ export function useBreadcrumbs() {
       users: '사용자',
       reports: '보고서',
       analytics: '분석',
-      overview: '오버뷰'
+      overview: '오버뷰',
+      new: '새로추가'
     };
 
     return segments.map((segment, index) => {

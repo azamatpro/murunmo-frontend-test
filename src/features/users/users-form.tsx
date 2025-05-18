@@ -81,7 +81,6 @@ export default function UserForm({
 
     try {
       if (initialData) {
-        // Update existing user
         const result = await dispatch(
           updateUser({ id: initialData.id, user: values })
         ).unwrap();
@@ -93,21 +92,20 @@ export default function UserForm({
           toast.error('사용자 정보 수정에 실패했습니다!');
         }
       } else {
-        // Add new user via API first (this will write to the JSON file)
         const response = await fakeUsers.addUser(values);
 
         if (response.success && response.user) {
-          // Update Redux store with the new user
           await dispatch(addUser(response.user)).unwrap();
-
           toast.success('사용자가 성공적으로 추가되었습니다!');
           router.push('/dashboard/users');
         } else {
-          toast.error('사용자 추가에 실패했습니다!');
+          toast.error(response.message || '사용자 추가에 실패했습니다!');
         }
       }
-    } catch (error) {
-      toast.error('사용자 데이터를 저장하는 중 오류가 발생했습니다.');
+    } catch (error: any) {
+      const errorMessage =
+        error.message || '사용자 데이터를 저장하는 중 오류가 발생했습니다.';
+      toast.error(errorMessage);
     } finally {
       setIsSubmitting(false);
     }

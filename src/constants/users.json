@@ -70,16 +70,6 @@
     "isAdmin": false
   },
   {
-    "id": 8,
-    "name": "Emily Anderson",
-    "username": "emilya",
-    "department": "sales",
-    "position": "manager",
-    "phoneNumber": "+1-555-890-1234",
-    "businessDate": "2024-12-15T00:00:00.000Z",
-    "isAdmin": true
-  },
-  {
     "id": 9,
     "name": "Robert Thomas",
     "username": "robertt",

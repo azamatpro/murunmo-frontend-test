@@ -23,7 +23,8 @@ export const HistoryTabs = () => {
   useEffect(() => {
     setHistory((prev) => {
       const newHistory = new Set(prev);
-      if (pathname) {
+      // Check if pathname exists and doesn't contain numbers
+      if (pathname && !/\/\d+/.test(pathname)) {
         newHistory.add(pathname);
         return new Set(Array.from(newHistory).slice(-MAX_HISTORY_ITEMS));
       }
@@ -51,7 +52,8 @@ export const HistoryTabs = () => {
     users: '사용자',
     reports: '보고서',
     analytics: '분석',
-    overview: '오버뷰'
+    overview: '오버뷰',
+    'users/new': '새로 추가'
   };
 
   const HistoryItems = ({ className }: { className?: string }) => (

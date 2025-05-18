@@ -21,7 +21,7 @@ import { CheckIcon, CaretSortIcon } from '@radix-ui/react-icons';
 import { exportToExcel } from '@/lib/export-excel';
 import { useMemo } from 'react';
 import { toast } from 'sonner';
-import UsersPdfDocument from '@/lib/export-pdf';
+import UsersPdfDocument from '@/components/export-pdf';
 import dynamic from 'next/dynamic';
 import usersData from '@/constants/users.json';
 

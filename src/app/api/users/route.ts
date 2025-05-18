@@ -1,6 +1,14 @@
 import { NextResponse } from 'next/server';
 import { promises as fs } from 'fs';
 import path from 'path';
+import {
+  ValidationError,
+  NotFoundError,
+  DatabaseError,
+  DuplicateError
+} from '@/lib/errors/error-controllers';
+
+import { ErrorHandler } from '@/lib/errors/error-handlers';
 
 const dataFilePath = path.join(process.cwd(), 'src', 'constants', 'users.json');
 
@@ -12,16 +20,10 @@ export async function GET() {
     return NextResponse.json({
       success: true,
       users,
-      message: 'Users fetched successfully'
+      message: '사용자 목록을 성공적으로 가져왔습니다.'
     });
   } catch (error) {
-    return NextResponse.json(
-      {
-        success: false,
-        message: 'Failed to read users data'
-      },
-      { status: 500 }
-    );
+    throw new DatabaseError('사용자 데이터를 읽는데 실패했습니다.');
   }
 }
 
@@ -30,31 +32,30 @@ export async function POST(request: Request) {
     const body = await request.json();
     const { user } = body;
 
-    // Read current users
+    if (!user) {
+      throw new ValidationError('사용자 데이터가 필요합니다.');
+    }
+
     const fileContents = await fs.readFile(dataFilePath, 'utf8');
     const users = JSON.parse(fileContents);
 
-    // Generate a new ID
+    if (users.some((u: any) => u.username === user.username)) {
+      throw new DuplicateError('사용자', '아이디', user.username);
+    }
+
     const maxId = users.length ? Math.max(...users.map((u: any) => u.id)) : 0;
     const newUser = { ...user, id: maxId + 1 };
 
-    // Add the new user and write back to file
     users.push(newUser);
     await fs.writeFile(dataFilePath, JSON.stringify(users, null, 2), 'utf8');
 
     return NextResponse.json({
       success: true,
-      message: 'User added successfully',
+      message: '사용자가 성공적으로 추가되었습니다.',
       user: newUser
     });
   } catch (error) {
-    return NextResponse.json(
-      {
-        success: false,
-        message: 'Failed to add user'
-      },
-      { status: 500 }
-    );
+    return ErrorHandler.handle(error as Error);
   }
 }
 
@@ -63,41 +64,30 @@ export async function PUT(request: Request) {
     const body = await request.json();
     const { id, user } = body;
 
-    // Read current users
+    if (!id || !user) {
+      throw new ValidationError('사용자 ID와 데이터가 모두 필요합니다.');
+    }
+
     const fileContents = await fs.readFile(dataFilePath, 'utf8');
     const users = JSON.parse(fileContents);
 
-    // Find and update the user
     const index = users.findIndex((u: any) => u.id === id);
     if (index === -1) {
-      return NextResponse.json(
-        {
-          success: false,
-          message: `User with ID ${id} not found`
-        },
-        { status: 404 }
-      );
+      throw new NotFoundError('사용자', id);
     }
 
     const updatedUser = { id, ...user };
     users[index] = updatedUser;
 
-    // Write back to file
     await fs.writeFile(dataFilePath, JSON.stringify(users, null, 2), 'utf8');
 
     return NextResponse.json({
       success: true,
-      message: `User with ID ${id} updated successfully`,
+      message: `ID ${id}의 사용자 정보가 성공적으로 수정되었습니다.`,
       user: updatedUser
     });
   } catch (error) {
-    return NextResponse.json(
-      {
-        success: false,
-        message: 'Failed to update user'
-      },
-      { status: 500 }
-    );
+    return ErrorHandler.handle(error as Error);
   }
 }
 
@@ -107,47 +97,25 @@ export async function DELETE(request: Request) {
     const id = Number(searchParams.get('id'));
 
     if (!id) {
-      return NextResponse.json(
-        {
-          success: false,
-          message: 'User ID is required'
-        },
-        { status: 400 }
-      );
+      throw new ValidationError('사용자 ID가 필요합니다.');
     }
 
-    // Read current users
     const fileContents = await fs.readFile(dataFilePath, 'utf8');
     const users = JSON.parse(fileContents);
 
-    // Find and remove the user
     const index = users.findIndex((u: any) => u.id === id);
     if (index === -1) {
-      return NextResponse.json(
-        {
-          success: false,
-          message: `User with ID ${id} not found`
-        },
-        { status: 404 }
-      );
+      throw new NotFoundError('사용자', id);
     }
 
     users.splice(index, 1);
-
-    // Write back to file
     await fs.writeFile(dataFilePath, JSON.stringify(users, null, 2), 'utf8');
 
     return NextResponse.json({
       success: true,
-      message: `User with ID ${id} deleted successfully`
+      message: `ID ${id}의 사용자가 성공적으로 삭제되었습니다.`
     });
   } catch (error) {
-    return NextResponse.json(
-      {
-        success: false,
-        message: 'Failed to delete user'
-      },
-      { status: 500 }
-    );
+    return ErrorHandler.handle(error as Error);
   }
 }
