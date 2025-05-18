@@ -23,7 +23,7 @@ export const HistoryTabs = () => {
   useEffect(() => {
     setHistory((prev) => {
       const newHistory = new Set(prev);
-      // Check if pathname exists and doesn't contain numbers
+      // Check if pathname exists and doesn't contain numbers (any user)
       if (pathname && !/\/\d+/.test(pathname)) {
         newHistory.add(pathname);
         return new Set(Array.from(newHistory).slice(-MAX_HISTORY_ITEMS));
@@ -90,7 +90,7 @@ export const HistoryTabs = () => {
   return (
     <>
       {/* Desktop view */}
-      <div className='my-2 hidden flex-wrap gap-2 md:flex'>
+      <div className='my-2 ml-4 hidden flex-wrap gap-2 md:flex'>
         <HistoryItems />
       </div>
 

@@ -13,9 +13,7 @@ export default function Header() {
         <SidebarTrigger className='-ml-1' />
         <Separator orientation='vertical' className='mr-1 h-4' />
         <Breadcrumbs />
-        <div className='ml-6'>
-          <HistoryTabs />
-        </div>
+        <HistoryTabs />
       </div>
 
       <div className='flex items-center gap-4 px-4'>

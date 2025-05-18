@@ -14,7 +14,8 @@ import { mockAuthUser } from '@/constants/data';
 import { toast } from 'sonner';
 export function UserNav() {
   const handleLogout = () => {
-    toast.success('Event has been created');
+    // Implement Logout logic here ...
+    toast.success('로그아웃 되었습니다');
   };
 
   return (
