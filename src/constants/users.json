@@ -1,0 +1,202 @@
+[
+  {
+    "id": 1,
+    "name": "John Smith",
+    "username": "johnsmith",
+    "department": "hr",
+    "position": "developer",
+    "phoneNumber": "+1-555-123-4567",
+    "businessDate": "2024-08-15",
+    "isAdmin": false
+  },
+  {
+    "id": 2,
+    "name": "Emma Johnson",
+    "username": "emmaj",
+    "department": "marketing",
+    "position": "manager",
+    "phoneNumber": "+1-555-234-5678",
+    "businessDate": "2024-09-10T00:00:00.000Z",
+    "isAdmin": true
+  },
+  {
+    "id": 3,
+    "name": "Michael Brown",
+    "username": "michaelb",
+    "department": "sales",
+    "position": "representative",
+    "phoneNumber": "+1-555-345-6789",
+    "businessDate": "2024-07-20T00:00:00.000Z",
+    "isAdmin": false
+  },
+  {
+    "id": 4,
+    "name": "Sarah Davis",
+    "username": "sarahd",
+    "department": "engineering",
+    "position": "senior developer",
+    "phoneNumber": "+1-555-456-7890",
+    "businessDate": "2024-10-05T00:00:00.000Z",
+    "isAdmin": true
+  },
+  {
+    "id": 5,
+    "name": "David Wilson",
+    "username": "davidw",
+    "department": "hr",
+    "position": "coordinator",
+    "phoneNumber": "+1-555-567-8901",
+    "businessDate": "2024-06-12T00:00:00.000Z",
+    "isAdmin": false
+  },
+  {
+    "id": 6,
+    "name": "Laura Martinez",
+    "username": "lauram",
+    "department": "marketing",
+    "position": "analyst",
+    "phoneNumber": "+1-555-678-9012",
+    "businessDate": "2024-11-01T00:00:00.000Z",
+    "isAdmin": false
+  },
+  {
+    "id": 7,
+    "name": "James Taylor",
+    "username": "jamest",
+    "department": "engineering",
+    "position": "developer",
+    "phoneNumber": "+1-555-789-0123",
+    "businessDate": "2024-05-25T00:00:00.000Z",
+    "isAdmin": false
+  },
+  {
+    "id": 8,
+    "name": "Emily Anderson",
+    "username": "emilya",
+    "department": "sales",
+    "position": "manager",
+    "phoneNumber": "+1-555-890-1234",
+    "businessDate": "2024-12-15T00:00:00.000Z",
+    "isAdmin": true
+  },
+  {
+    "id": 9,
+    "name": "Robert Thomas",
+    "username": "robertt",
+    "department": "hr",
+    "position": "manager",
+    "phoneNumber": "+1-555-901-2345",
+    "businessDate": "2024-04-30T00:00:00.000Z",
+    "isAdmin": true
+  },
+  {
+    "id": 10,
+    "name": "Olivia Lee",
+    "username": "olivial",
+    "department": "hr",
+    "position": "developer",
+    "phoneNumber": "+1-555-012-3456",
+    "businessDate": "2024-03-18",
+    "isAdmin": false
+  },
+  {
+    "id": 11,
+    "name": "William Clark",
+    "username": "williamc",
+    "department": "marketing",
+    "position": "coordinator",
+    "phoneNumber": "+1-555-123-5678",
+    "businessDate": "2024-02-22T00:00:00.000Z",
+    "isAdmin": false
+  },
+  {
+    "id": 12,
+    "name": "Sophia Walker",
+    "username": "sophiaw",
+    "department": "sales",
+    "position": "representative",
+    "phoneNumber": "+1-555-234-6789",
+    "businessDate": "2024-01-10T00:00:00.000Z",
+    "isAdmin": false
+  },
+  {
+    "id": 13,
+    "name": "Daniel Harris",
+    "username": "danielh",
+    "department": "engineering",
+    "position": "developer",
+    "phoneNumber": "+1-555-345-7890",
+    "businessDate": "2024-09-28T00:00:00.000Z",
+    "isAdmin": true
+  },
+  {
+    "id": 14,
+    "name": "Ava Lewis",
+    "username": "aval",
+    "department": "hr",
+    "position": "coordinator",
+    "phoneNumber": "+1-555-456-8901",
+    "businessDate": "2024-08-03T00:00:00.000Z",
+    "isAdmin": false
+  },
+  {
+    "id": 15,
+    "name": "Matthew King",
+    "username": "matthewk",
+    "department": "marketing",
+    "position": "manager",
+    "phoneNumber": "+1-555-567-9012",
+    "businessDate": "2024-07-14T00:00:00.000Z",
+    "isAdmin": true
+  },
+  {
+    "id": 16,
+    "name": "Isabella Wright",
+    "username": "isabellaw",
+    "department": "sales",
+    "position": "analyst",
+    "phoneNumber": "+1-555-678-0123",
+    "businessDate": "2024-06-27T00:00:00.000Z",
+    "isAdmin": false
+  },
+  {
+    "id": 17,
+    "name": "Ethan Scott",
+    "username": "ethans",
+    "department": "engineering",
+    "position": "developer",
+    "phoneNumber": "+1-555-789-1234",
+    "businessDate": "2024-05-09T00:00:00.000Z",
+    "isAdmin": false
+  },
+  {
+    "id": 18,
+    "name": "Mia Green",
+    "username": "miag",
+    "department": "hr",
+    "position": "manager",
+    "phoneNumber": "+1-555-890-2345",
+    "businessDate": "2024-04-12T00:00:00.000Z",
+    "isAdmin": true
+  },
+  {
+    "id": 19,
+    "name": "Alexander Adams",
+    "username": "alexandera",
+    "department": "marketing",
+    "position": "analyst",
+    "phoneNumber": "+1-555-901-3456",
+    "businessDate": "2024-03-25T00:00:00.000Z",
+    "isAdmin": false
+  },
+  {
+    "id": 20,
+    "name": "Charlotte Baker",
+    "username": "charlotteb",
+    "department": "engineering",
+    "position": "developer",
+    "phoneNumber": "+1-555-012-4567",
+    "businessDate": "2024-02-08T00:00:00.000Z",
+    "isAdmin": true
+  }
+]
